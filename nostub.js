@@ -1,6 +1,6 @@
 var inFence = 0;
 
-_DDP.Connection.prototype.stubFence = function(names, f) {
+_DDP.stubFence = function(names, f) {
   var self = this;
 
   if (++inFence !== 1) {
@@ -40,7 +40,7 @@ _DDP.Connection.prototype.stubFence = function(names, f) {
     // Insert the stub again
     _.each(supers, function(f, name) {
       self._methodHandlers[name] = f;
-    });    
+    });
   } else {
     throw new Error('stubFence, no methods found');
   }

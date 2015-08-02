@@ -3,7 +3,7 @@ raix:stubfence
 
 This tiny package creates a method stub fence, effectivly stops latency compensation temporarily.
 
-Why would you ever do this?
+#### Why would you ever do this?
 Its an odd egde case we have in grounddb. GroundDB resumes "outstanding" method calls - this is normally not a problem since we previously worked around this by removing data before inserting etc.
 
 But we cannot catch reruns that mutate the data incrementally eg. updating data with `$inc`, `$dec`, `$push`, `$pull`.
@@ -20,7 +20,7 @@ For the groundDB project we want code to be as non-intrusive as possible - this 
 
 This package actually reduces the original workaround by approx 50%
 
-How does this work?
+#### How does this work?
 
 On a collection:
 ```js
