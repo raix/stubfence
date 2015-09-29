@@ -1,3 +1,4 @@
+/* global _DDP:false */
 var inFence = 0;
 
 _DDP.stubFence = function(names, f) {
@@ -9,7 +10,9 @@ _DDP.stubFence = function(names, f) {
   }
 
   // Take string or array of string
-  if (names === ''+names) names = [names];
+  if (names === ''+names) {
+    names = [names];
+  }
 
   // Carrier for super of methods
   var supers = {};
@@ -52,8 +55,9 @@ Mongo.Collection.prototype.stubFence = function(f) {
   var self = this;
 
   // Make sure we got a collection name
-  if (!self._name)
+  if (!self._name) {
     throw new Error('Dont run stubFence on an annonymous collection');
+  }
 
   // Make sure we got a connection
   if (self._connection) {
